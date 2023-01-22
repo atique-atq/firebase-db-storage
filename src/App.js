@@ -12,7 +12,9 @@ function App() {
   return (
     <div className="App">
       <Navbar></Navbar>
-      <Updatedb></Updatedb>
+      {/* used for data upload */}
+      {/* <Updatedb></Updatedb> */}
+      
 
 
       <br />
