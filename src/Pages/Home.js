@@ -1,8 +1,9 @@
 import React from 'react';
-import { FaSignInAlt, FaSignLanguage } from "react-icons/fa";
+import { FaSignInAlt } from "react-icons/fa";
+import SingleEvent from './SingleEvent';
 
 const Home = ({usersInfo}) => {
-    console.log('all data:',usersInfo);
+    console.log('all data:--',usersInfo);
     return (
         <div className='flex flex-row'>
             <div className='bg-[#00B8F1] w-12 h-screen flex flex-col justify-between pb-20'>
@@ -24,8 +25,14 @@ const Home = ({usersInfo}) => {
                     <p>2nd part</p>
                 </div>
 
-                <div className='w-4/12 border-8 border-gray-300 mb-16 p-2'>
-                    <p className='text-black text-2xl font-bold'>Events</p>
+                <div className='w-4/12 border-8 border-gray-300 mb-16 p-2 overflow-auto'>
+                    <p className='text-black text-2xl font-bold mb-1'>Events</p>
+                    {
+                        usersInfo.map((info, index) => <SingleEvent
+                        key={index}
+                        info={info}
+                        ></SingleEvent>)
+                    }
                 </div>
             </div>
         </div>

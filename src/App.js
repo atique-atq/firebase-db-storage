@@ -27,7 +27,7 @@ function App() {
       <Navbar></Navbar>
       <Home usersInfo={usersInfo}></Home>
       {/* used for data uploading */}
-      <Updatedb></Updatedb>
+      {/* <Updatedb></Updatedb> */}
 
       <br />
       <br />
