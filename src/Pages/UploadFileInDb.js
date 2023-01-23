@@ -5,10 +5,11 @@ import { getFirestore } from "@firebase/firestore";
 import { app } from "../firebase-config";
 import { collection,getDocs,addDoc,updateDoc,deleteDoc,doc } from "firebase/firestore";
 
-const db = getFirestore(app);
+
 const UploadFileInDb = ({imageList}) => {
     const [fileUpload, setFileUpload] = useState(null);
     const [totalRow, setTotalRow] = useState([]);
+    const db = getFirestore(app);
     const usersCollectionRef = collection(db, "users");
 
     //upload file into db
@@ -49,7 +50,6 @@ const UploadFileInDb = ({imageList}) => {
     useEffect(() => {
         const getUsers = async () => {
             const data = await getDocs(usersCollectionRef);
-            console.log('****', data);
             setTotalRow(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
         };
 
