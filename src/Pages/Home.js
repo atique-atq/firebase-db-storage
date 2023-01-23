@@ -29,7 +29,7 @@ const Home = ({usersInfo}) => {
             </div>
 
             <div className='flex flex-row w-full h-screen'>
-                <div className='w-4/12 bg-red-300 flex items-center ml-4'>
+                <div className='w-4/12 flex items-center ml-4 p-1'>
                     <SingleEventDescription selectedInfo={selectedInfo}></SingleEventDescription>
                 </div>
 
