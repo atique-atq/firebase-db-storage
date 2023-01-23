@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FaSignInAlt } from "react-icons/fa";
 import SingleEvent from './SingleEvent';
 
 const Home = ({usersInfo}) => {
-    console.log('all data:--',usersInfo);
+    const firstElement = usersInfo[0];
+    console.log('{{{{}}}}', firstElement);
+    const [selectedInfo, setSelectedInfo] = useState({});
+
+
     return (
         <div className='flex flex-row'>
             <div className='bg-[#00B8F1] w-12 h-screen flex flex-col justify-between pb-20'>
@@ -22,7 +26,9 @@ const Home = ({usersInfo}) => {
                 </div>
 
                 <div className='w-4/12'>
-                    <p>2nd part</p>
+         
+                    <p>{selectedInfo?.gender}</p>
+                    <img src={selectedInfo?.imgUrl} alt="profile"></img>
                 </div>
 
                 <div className='w-4/12 border-8 border-gray-300 mb-16 p-2 overflow-auto'>
@@ -31,6 +37,7 @@ const Home = ({usersInfo}) => {
                         usersInfo.map((info, index) => <SingleEvent
                         key={index}
                         info={info}
+                        setSelectedInfo={setSelectedInfo}
                         ></SingleEvent>)
                     }
                 </div>
