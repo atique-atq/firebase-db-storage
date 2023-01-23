@@ -1,14 +1,18 @@
 import React from 'react';
 
-const Navbar = () => {
+const Navbar = ({usersInfo}) => {
+  const allMale = usersInfo.map((item) => item.gender.toUpperCase() === 'MALE')
+  const allFemale = usersInfo.map((item) => item.gender.toUpperCase() === 'FEMALE')
+  const maleCount = allMale.length === 0 ? 25 : allMale.length;
+  const femaleCount = allFemale.length === 0 ? 25 : allFemale.length;
   const menuItems = (
         <>
         <li className="font-bold text-gray-600 ml-3 p-0">
                 <p className="text-xl mt-1">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
                 </p>           
-                <p className="bg-[#92D050] rounded-none ml-3 text-black">FIrst</p>
-                <p className="rounded-none bg-[#FF0100] ml-3 text-white">Second</p>
+                <p className="bg-[#92D050] rounded-none ml-3 px-7 text-black">{maleCount}</p>
+                <p className="rounded-none bg-[#FF0100] ml-3 px-7 text-white">{femaleCount}</p>
       </li>
         </>
   )

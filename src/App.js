@@ -16,8 +16,8 @@ function App() {
     useEffect(() => {
         const getUsers = async () => {
            // getting information from firebase database
-            // const data = await getDocs(usersCollectionRef);
-            // setUsersInfo(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+            const data = await getDocs(usersCollectionRef);
+            setUsersInfo(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
         };
 
       getUsers();
@@ -25,7 +25,7 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar></Navbar>
+      <Navbar usersInfo={usersInfo}></Navbar>
       <Home usersInfo={usersInfo}></Home>
       {/* used for data uploading */}
       {/* <Updatedb></Updatedb> */}
