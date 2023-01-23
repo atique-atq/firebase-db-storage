@@ -1,11 +1,19 @@
 import React, { useState } from 'react';
 import { FaSignInAlt } from "react-icons/fa";
 import SingleEvent from './SingleEvent';
+import SingleEventDescription from './SingleEventDescription';
 
 const Home = ({usersInfo}) => {
-    const firstElement = usersInfo[0];
-    console.log('{{{{}}}}', firstElement);
-    const [selectedInfo, setSelectedInfo] = useState({});
+    const defaultInfo={
+        imgUrl: 'https://firebasestorage.googleapis.com/v0/b/fir-db-task.appspot.com/o/images%2FMale19.jpg?alt=media&token=9357ca2c-bbfb-4de0-914c-60b4c8421099',
+        gender: 'Male',
+        date: '8-Jan-23',
+        location: 'Chennai',
+        name: 'Male19',
+        time: '4:46:13 AM',
+        userID: 'EVT0035',
+    }
+    const [selectedInfo, setSelectedInfo] = useState(defaultInfo);
 
 
     return (
@@ -21,14 +29,15 @@ const Home = ({usersInfo}) => {
             </div>
 
             <div className='flex flex-row w-full h-screen'>
-                <div className='w-4/12'>
-                    <p>1st part</p>
+                <div className='w-4/12 bg-red-300 flex items-center ml-4'>
+                    <SingleEventDescription selectedInfo={selectedInfo}></SingleEventDescription>
                 </div>
 
-                <div className='w-4/12'>
-         
-                    <p>{selectedInfo?.gender}</p>
-                    <img src={selectedInfo?.imgUrl} alt="profile"></img>
+                <div className='w-4/12 mb-16 p-2 flex flex-grow flex-col '>
+                    <p className='text-black text-2xl font-bold mb-1'>{selectedInfo?.gender}</p>
+                    <div className='w-full mt-2 flex items-center flex-grow justify-between'>
+                        <img className='h-full' src={selectedInfo?.imgUrl} alt="profile"></img>
+                    </div>
                 </div>
 
                 <div className='w-4/12 border-8 border-gray-300 mb-16 p-2 overflow-auto'>

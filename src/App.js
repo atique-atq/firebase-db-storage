@@ -11,15 +11,16 @@ function App() {
     const db = getFirestore(app);
     const usersCollectionRef = collection(db, "users");
 
-  const [usersInfo, setUsersInfo] = useState([]);
+    const [usersInfo, setUsersInfo] = useState([]);
 
     useEffect(() => {
         const getUsers = async () => {
-            const data = await getDocs(usersCollectionRef);
-            setUsersInfo(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+           // getting information from firebase database
+            // const data = await getDocs(usersCollectionRef);
+            // setUsersInfo(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
         };
 
-    getUsers();
+      getUsers();
   }, []);
 
   return (
