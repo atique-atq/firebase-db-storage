@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Navbar = ({usersInfo}) => {
-  console.log('in navbar', usersInfo);
   const allMale = usersInfo?.map((item) => item.gender.toUpperCase() === 'MALE')
   const allFemale = usersInfo?.map((item) => item.gender.toUpperCase() === 'FEMALE')
   const maleCount = allMale?.length === 0 ? 25 : allMale.length;

@@ -4,7 +4,7 @@ import SingleEvent from './SingleEvent';
 import SingleEventDescription from './SingleEventDescription';
 import filterImg from '../assets/filter.png'
 
-const Home = ({usersInfo}) => {
+const Home = ({usersInfo, setLocationFilter}) => {
     const defaultInfo={
         imgUrl: 'https://firebasestorage.googleapis.com/v0/b/fir-db-task.appspot.com/o/images%2FMale19.jpg?alt=media&token=9357ca2c-bbfb-4de0-914c-60b4c8421099',
         gender: 'Male',
@@ -52,15 +52,43 @@ const Home = ({usersInfo}) => {
                             <input type="checkbox" id="modal-of-filter" className="modal-toggle" />
                             <div className="modal modal-bottom sm:modal-middle">
                             <div className="modal-box">
-                                <h3 className="font-bold text-lg">Congratulations random Internet user!</h3>
-                                <p className="py-4">You've been selected for a chance to get one year of subscription to use Wikipedia for free!</p>
+                                <div className='grid grid-cols-3 my-8 gap-2'>
+                                    <div className='my-1 p-1'>Location</div>          
+                                    <div>     
+                                       <select className='border-gray-300 border-2 p-1 rounded-md'>
+                                            <option value="" selected disabled hidden>Select Location</option>
+                                            <option value="Chennai">Chennai</option>
+                                            <option value="Hyderabad">Hyderabad</option>   
+                                            <option value="Bangalore">Bangalore</option> 
+                                        </select>
+                                    </div>
+                                    <div></div>
+
+                                    <div className='my-1 p-1'>Gender</div>      
+                                    <div>
+                                        <select className='border-gray-300 border-2 p-1 rounded-md' >
+                                            <option value="" selected disabled hidden>Choose Gender</option>
+                                            <option value="Male">Male</option>
+                                            <option value="Female">Female</option>
+                                        </select>
+                                    </div>
+                                    <div></div>
+
+                                    <div className='my-1 p-1'>Date</div>      
+                                    <div> 
+                                        <input className='border-gray-300 border-2 p-1 rounded-md' type="date" id="date" name="Date"></input>
+                                    </div>
+                                    <div></div>
+                                </div>  
+
                                 <div className="modal-action">
-                                    <label htmlFor="modal-of-filter" className="btn">Yay!</label>
+                                    <label htmlFor="modal-of-filter" className="btn btn-primary">Filter</label>
                                 </div>
                             </div>
                             </div>
                         </div>
                     </div>
+
                     {
                         usersInfo.map((info, index) => <SingleEvent
                         key={index}

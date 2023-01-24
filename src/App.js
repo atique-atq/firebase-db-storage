@@ -33,11 +33,12 @@ function App() {
     ]
     const [usersInfo, setUsersInfo] = useState(defaultInfo);
 
+
     useEffect(() => {
         const getUsers = async () => {
            // getting information from firebase database
-            // const data = await getDocs(usersCollectionRef);
-            // setUsersInfo(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+            const data = await getDocs(usersCollectionRef);
+            setUsersInfo(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
         };
 
       getUsers();
