@@ -49,18 +49,10 @@ const Updatedb = () => {
                         <input type="file" multiple="multiple" onChange={(event) => { setImageUpload(event.target.files)}}/>
 
                         <div className='flex items-center justify-center'>
-                            <button className='btn btn-sm mt-2 btn-accent btn-disabled' onClick={uploadFile}> Upload Image</button>
+                            <button className='btn btn-sm mt-2 btn-accent' disabled onClick={uploadFile}> Upload Image</button>
                             <span className='text-sm text-gray-600 ml-4 italic'>upload button has been disabled</span>
                         </div>
                         <p className='font-bold mt-10'>Uploaded Image Size {imageList.length}</p>
-
-                        {/* <div className='flex flex-row flex-wrap mx-20 gap-2'>
-                            {
-                                imageList.map((url, index) => {
-                                    return <img className='w-10' key={index} alt="" src={url}/> 
-                                })
-                            }
-                        </div> */}
                     </div>
                 </div>
                 <div className="divider divider-horizontal"></div>

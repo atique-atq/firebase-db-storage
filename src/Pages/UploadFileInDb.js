@@ -62,7 +62,7 @@ const UploadFileInDb = ({imageList}) => {
             <input type="file" id="input" onChange={(event) => { setFileUpload(event.target.files)}}/>
             
             <div className='flex items-center justify-center'>
-                <button className='btn btn-sm mt-2 btn-accent'disabled onClick={uploadFile}> Upload File</button>
+                <button className='btn btn-sm mt-2 btn-accent' onClick={uploadFile}> Upload File</button>
                 <span className='text-sm text-gray-600 ml-4 italic'>upload button has been disabled</span>
             </div>
             <p className='font-bold mt-10'>Total Row Inserted {totalRow.length}</p>            

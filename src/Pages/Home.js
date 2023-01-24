@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { FaSignInAlt } from "react-icons/fa";
 import SingleEvent from './SingleEvent';
 import SingleEventDescription from './SingleEventDescription';
+import filterImg from '../assets/filter.png'
 
 const Home = ({usersInfo}) => {
     const defaultInfo={
@@ -13,7 +14,7 @@ const Home = ({usersInfo}) => {
         time: '4:46:13 AM',
         userID: 'EVT0035',
     }
-    const [selectedInfo, setSelectedInfo] = useState(defaultInfo);
+    const [selectedInfo, setSelectedInfo] = useState(usersInfo[0]);
 
 
     return (
@@ -41,7 +42,25 @@ const Home = ({usersInfo}) => {
                 </div>
 
                 <div className='w-4/12 border-8 border-gray-300 mb-16 p-2 overflow-auto'>
-                    <p className='text-black text-2xl font-bold mb-1'>Events</p>
+                    <div className='flex flex-row justify-between'>
+                        <p className='text-black text-2xl font-bold mb-1'>Events</p>
+                        <div className='hover:cursor-pointer hover:bg-slate-400 hover:p-1'>
+                            <label htmlFor="modal-of-filter"> 
+                                <img className='h-7' src={filterImg} alt="filter" /> 
+                            </label> 
+                      
+                            <input type="checkbox" id="modal-of-filter" className="modal-toggle" />
+                            <div className="modal modal-bottom sm:modal-middle">
+                            <div className="modal-box">
+                                <h3 className="font-bold text-lg">Congratulations random Internet user!</h3>
+                                <p className="py-4">You've been selected for a chance to get one year of subscription to use Wikipedia for free!</p>
+                                <div className="modal-action">
+                                    <label htmlFor="modal-of-filter" className="btn">Yay!</label>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
                     {
                         usersInfo.map((info, index) => <SingleEvent
                         key={index}

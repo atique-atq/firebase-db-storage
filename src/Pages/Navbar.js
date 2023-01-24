@@ -1,10 +1,11 @@
 import React from 'react';
 
 const Navbar = ({usersInfo}) => {
-  const allMale = usersInfo.map((item) => item.gender.toUpperCase() === 'MALE')
-  const allFemale = usersInfo.map((item) => item.gender.toUpperCase() === 'FEMALE')
-  const maleCount = allMale.length === 0 ? 25 : allMale.length;
-  const femaleCount = allFemale.length === 0 ? 25 : allFemale.length;
+  console.log('in navbar', usersInfo);
+  const allMale = usersInfo?.map((item) => item.gender.toUpperCase() === 'MALE')
+  const allFemale = usersInfo?.map((item) => item.gender.toUpperCase() === 'FEMALE')
+  const maleCount = allMale?.length === 0 ? 25 : allMale.length;
+  const femaleCount = allFemale?.length === 0 ? 25 : allFemale.length;
   const menuItems = (
         <>
         <li className="font-bold text-gray-600 ml-3 p-0">
